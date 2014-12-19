@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>NodeWebkit Window Controls Example</title>
+    <link rel='stylesheet' href='style.css'>
+
+    <script>
+
+        var nw = require('nw.gui');
+        var win = nw.Window.get();
+        win.isMaximized = false;
+
+    </script>
+
+    </head>
+<body>
+
+    <header>
+        <ul>
+            <li><a href='#' title='Minimize' id='windowControlMinimize'></a></li><!--
+         --><li><a href='#' title='Maximize' id='windowControlMaximize'></a></li><!--
+         --><li><a href='#' title='Close'    id='windowControlClose'   ></a></li>
+            </ul>
+        </header>
+
+    <script>
+
+        // Min
+        document.getElementById('windowControlMinimize').onclick = function()
+        {
+            win.minimize();
+        };
+
+        // Close
+        document.getElementById('windowControlClose').onclick = function()
+        {
+            win.close();
+        };
+
+        // Max
+        document.getElementById('windowControlMaximize').onclick = function()
+        {
+            if (win.isMaximized)
+                win.unmaximize();
+            else
+                win.maximize();
+        };
+
+        win.on('maximize', function(){
+            win.isMaximized = true;
+        });
+
+        win.on('unmaximize', function(){
+            win.isMaximized = false;
+        });
+
+
+    </script>
+	<h1>Апликуха</h1>
+    </body>
+</html>
