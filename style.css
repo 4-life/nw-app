@@ -58,7 +58,7 @@ header>ul>li>a{
     width:              22px;
     height:             22px;
     margin:              6px 6px 6px 0;
-    background-image:   url('./icons.svg');
+    background-image:   url('img/icons.svg');
     background-repeat:  no-repeat;
     -webkit-transition: -webkit-transform 200ms;
     -webkit-app-region: no-drag;

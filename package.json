@@ -1,14 +1,15 @@
 {
-  "name": "nw-demo",
-  "main": "index.html",
-  "window": {
-    "title": "Hello world",
-    "toolbar": false,
-    "frame": false,
-    "width": 800,
-    "height": 500,
-    "min_width": 400,
-    "min_height": 200,
-    "position": "center"
-  }
+	"name": "app",
+	"main": "index.html",
+	"version": "0.1.0",
+	"window": {
+		"title": "app",
+		"toolbar": true,
+		"frame": false,
+		"width": 800,
+		"height": 500,
+		"min_width": 400,
+		"min_height": 200,
+		"position": "center"
+	}
 }

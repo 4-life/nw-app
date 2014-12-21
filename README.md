@@ -1,12 +1,8 @@
-new
+<h1>Node-webkit application</h1>
 ===
 
-test description
+My test app for education.
 
-<h1>Ой приветики</h2>
 ===
 
-тест
-
-
-всем вады!
+Don't touch it! It's mine!
