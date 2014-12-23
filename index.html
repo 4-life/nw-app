@@ -23,11 +23,10 @@
          --><li><a href='#' title='Close'    id='windowControlClose'   ></a></li>
             </ul>
         </header>
-
-	<h1>Апликуха</h1>
 	<input type="button" value="запустить" id="start"/>
+	<textarea id="textarea">terminal</textarea>
     <script>
-
+		var log = "";
         // Min
         document.getElementById('windowControlMinimize').onclick = function()
         {
@@ -57,7 +56,8 @@
             win.isMaximized = false;
         });
 		
-		var dir = '%APPDATA%\\.cubecraft\\Classic\\';
+		var dir = '';
+		var dir2 = '%APPDATA%\\.cubecraft\\Classic\\';
 		var start = 'javaw -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.ignorePatchDiscrepancies=true -Xmx1G -Djava.library.path='+dir+'bin\\natives -cp '+
 		dir+'libraries\\net\\minecraftforge\\minecraftforge\\9.11.1.965\\minecraftforge-9.11.1.965.jar;'+
 		dir+'libraries\\net\\minecraft\\launchwrapper\\1.8\\launchwrapper-1.8.jar;'+
@@ -79,18 +79,19 @@
 		dir+'libraries\\com\\google\\code\\gson\\gson\\2.2.2\\gson-2.2.2.jar;'+
 		dir+'libraries\\org\\lwjgl\\lwjgl\\lwjgl\\2.9.0\\lwjgl-2.9.0.jar;'+
 		dir+'libraries\\org\\lwjgl\\lwjgl\\lwjgl_util\\2.9.0\\lwjgl_util-2.9.0.jar;'+
-		dir+'bin\\minecraft.jar net.minecraft.launchwrapper.Launch --username 4life --session 123456789 --gameDir "'+dir+'" --assetsDir assets --accessToken 0 --tweakClass cpw.mods.fml.common.launcher.FMLTweaker';
+		dir+'bin\\minecraft.jar net.minecraft.launchwrapper.Launch --username 4life --session 123456789 --gameDir "'+dir2+'" --assetsDir assets --accessToken 0 --tweakClass cpw.mods.fml.common.launcher.FMLTweaker';
 		
         document.getElementById('start').onclick = function(){
 			var full_path = process.execPath;
 			var exec = require('child_process').exec;
 			exec(start, function(error, stdout, stderr) {
-				console.log('stdout: ' + stdout);
-				console.log('stderr: ' + stderr);
+				log +='stdout: ' + stdout;
+				log +='stderr: ' + stderr;
 				if (error !== null) {
-					console.log('exec error: ' + error);
+					log +='exec error: ' + error;
 				}
 			});
+			document.getElementById('textarea').value = log;
         };
 
     </script>

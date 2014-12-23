@@ -78,13 +78,4 @@ a#windowControlMinimize{
     background-position: 0 0;
     }
 	
-h1{
-	font-size:35pt;
-	color:red;
-	margin:20px;
-    -webkit-transition: all 1s ease-in-out;
-}
-h1:hover{
-	color:#333;
-	font-size:45pt;
-}
+textarea{height:100%;display:block;position:relative;}
