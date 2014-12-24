@@ -1,99 +1,35 @@
 ﻿<!doctype html>
-<html lang='en'>
+<html lang='ru'>
 <head>
     <meta charset='UTF-8'>
-    <title>NodeWebkit Window Controls Example</title>
+    <title>nw-app</title>
     <link rel='stylesheet' href='style.css'>
-
-    <script>
-
-        var nw = require('nw.gui');
-        var win = nw.Window.get();
-        win.isMaximized = false;
-
-    </script>
-
-    </head>
+</head>
 <body>
 
     <header>
+		<h1>nw-app</h1>
         <ul>
-            <li><a href='#' title='Minimize' id='windowControlMinimize'></a></li><!--
-         --><li><a href='#' title='Maximize' id='windowControlMaximize'></a></li><!--
-         --><li><a href='#' title='Close'    id='windowControlClose'   ></a></li>
-            </ul>
-        </header>
-	<input type="button" value="запустить" id="start"/>
-	<textarea id="textarea">terminal</textarea>
-    <script>
-		var log = "";
-        // Min
-        document.getElementById('windowControlMinimize').onclick = function()
-        {
-            win.minimize();
-        };
+            <li><a href='#' title='Minimize' id='windowControlMinimize'></a></li>
+			<!--<li><a href='#' title='Maximize' id='windowControlMaximize'></a></li>-->
+			<li><a href='#' title='Close'    id='windowControlClose'   ></a></li>
+        </ul>
+    </header>
 
-        // Close
-        document.getElementById('windowControlClose').onclick = function()
-        {
-            win.close();
-        };
-
-        // Max
-        document.getElementById('windowControlMaximize').onclick = function()
-        {
-            if (win.isMaximized)
-                win.unmaximize();
-            else
-                win.maximize();
-        };
-
-        win.on('maximize', function(){
-            win.isMaximized = true;
-        });
-
-        win.on('unmaximize', function(){
-            win.isMaximized = false;
-        });
-		
-		var dir = '';
-		var dir2 = '%APPDATA%\\.cubecraft\\Classic\\';
-		var start = 'javaw -Dfml.ignoreInvalidMinecraftCertificates=true -Dfml.ignorePatchDiscrepancies=true -Xmx1G -Djava.library.path='+dir+'bin\\natives -cp '+
-		dir+'libraries\\net\\minecraftforge\\minecraftforge\\9.11.1.965\\minecraftforge-9.11.1.965.jar;'+
-		dir+'libraries\\net\\minecraft\\launchwrapper\\1.8\\launchwrapper-1.8.jar;'+
-		dir+'libraries\\org\\ow2\\asm\\asm-all\\4.1\\asm-all-4.1.jar;'+
-		dir+'libraries\\lzma\\lzma\\0.0.1\\lzma-0.0.1.jar;'+
-		dir+'libraries\\net\\sf\\jopt-simple\\jopt-simple\\4.5\\jopt-simple-4.5.jar;'+
-		dir+'libraries\\com\\paulscode\\codecjorbis\\20101023\\codecjorbis-20101023.jar;'+
-		dir+'libraries\\com\\paulscode\\codecwav\\20101023\\codecwav-20101023.jar;'+
-		dir+'libraries\\com\\paulscode\\libraryjavasound\\20101123\\libraryjavasound-20101123.jar;'+
-		dir+'libraries\\com\\paulscode\\librarylwjglopenal\\20100824\\librarylwjglopenal-20100824.jar;'+
-		dir+'libraries\\com\\paulscode\\soundsystem\\20120107\\soundsystem-20120107.jar;'+
-		dir+'libraries\\argo\\argo\\2.25_fixed\\argo-2.25_fixed.jar;'+
-		dir+'libraries\\org\\bouncycastle\\bcprov-jdk15on\\1.47\\bcprov-jdk15on-1.47.jar;'+
-		dir+'libraries\\com\\google\\guava\\guava\\14.0\\guava-14.0.jar;'+
-		dir+'libraries\\org\\apache\\commons\\commons-lang3\\3.1\\commons-lang3-3.1.jar;'+
-		dir+'libraries\\commons-io\\commons-io\\2.4\\commons-io-2.4.jar;'+
-		dir+'libraries\\net\\java\\jinput\\jinput\\2.0.5\\jinput-2.0.5.jar;'+
-		dir+'libraries\\net\\java\\jutils\\jutils\\1.0.0\\jutils-1.0.0.jar;'+
-		dir+'libraries\\com\\google\\code\\gson\\gson\\2.2.2\\gson-2.2.2.jar;'+
-		dir+'libraries\\org\\lwjgl\\lwjgl\\lwjgl\\2.9.0\\lwjgl-2.9.0.jar;'+
-		dir+'libraries\\org\\lwjgl\\lwjgl\\lwjgl_util\\2.9.0\\lwjgl_util-2.9.0.jar;'+
-		dir+'bin\\minecraft.jar net.minecraft.launchwrapper.Launch --username 4life --session 123456789 --gameDir "'+dir2+'" --assetsDir assets --accessToken 0 --tweakClass cpw.mods.fml.common.launcher.FMLTweaker';
-		
-        document.getElementById('start').onclick = function(){
-			var full_path = process.execPath;
-			var exec = require('child_process').exec;
-			exec(start, function(error, stdout, stderr) {
-				log +='stdout: ' + stdout;
-				log +='stderr: ' + stderr;
-				if (error !== null) {
-					log +='exec error: ' + error;
-				}
-			});
-			document.getElementById('textarea').value = log;
-        };
-
-    </script>
-    </body>
+	<main>	
+		<input type="button" value="запустить" id="start"/>
+		<textarea id="textarea">terminal</textarea>
+	</main>
+	
+	<form class="auth">		
+		<input type="text" id="login" name="login" placeholder="Логин"/>
+		<input type="password" id="pass" name="pass" placeholder="Пароль"/>
+		<label><input type="checkbox" id="save_pass" name="save_pass"/>сохранить пароль</label>
+		<input type="submit" class="submit" name="pass" value="Войти"/>
+		<a href="http://cubecraft.org/" class="site">перейти на сайт</a>
+	</form>
+	
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>
