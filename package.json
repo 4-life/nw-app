@@ -9,6 +9,7 @@
 		"frame": false,
 		"width": 800,
 		"height": 500,
+		"icon": "img/app.png",
 		"position": "center"
 	}
 }
