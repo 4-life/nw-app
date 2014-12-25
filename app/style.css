@@ -153,3 +153,16 @@ label{
 	opacity:0;
 	-webkit-transition:all 1s cubic-bezier(0.68, 0, 0.265, 1.55);
 }
+
+
+#loader {position:absolute;	box-sizing: border-box;	display: table-cell;vertical-align: middle;	bottom:10px;left:50%;margin-left: -26px;opacity:0;-webkit-transition:all .6s ease-in-out;}
+#loader.active{opacity:1;}
+.loading{box-sizing: border-box; position: relative; display: inline-block; padding: 0.5em; vertical-align: middle; text-align: center; background-color: transparent; border: 5px solid transparent; border-top-color: #c22; border-bottom-color: #c22; border-radius: 50%;}
+.outer{ -webkit-animation: spin 2s infinite;}
+.inner{ -webkit-animation: spin 2s infinite;}
+@-webkit-keyframes spin{
+  0% {transform: rotateZ(0deg);}
+  100% {transform: rotateZ(360deg);}
+}
+
+

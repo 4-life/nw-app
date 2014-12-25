@@ -1,7 +1,9 @@
 <h1>Node-webkit application</h1>
 ===
 
-My test app for education.
+Ставим гит
+
+npm i
 
 ===
 

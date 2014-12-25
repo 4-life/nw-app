@@ -1,15 +1,8 @@
 {
-	"name": "app",
-	"main": "index.html",
-	"version": "0.1.0",
-	"window": {
-		"title": "app",
-		"toolbar": false,
-		"resizable":false,
-		"frame": false,
-		"width": 800,
-		"height": 500,
-		"icon": "img/app.png",
-		"position": "center"
-	}
+  "name": "nw-app",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-node-webkit-builder": "latest"
+  }
 }
