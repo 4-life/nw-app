@@ -1,5 +1,5 @@
 {
-  "name": "nw-app",
+  "name": "app",
   "devDependencies": {
     "grunt": "latest",
     "grunt-contrib-watch": "^0.6.1",

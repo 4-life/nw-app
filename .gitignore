@@ -5,3 +5,4 @@
 # игнорировать все файлы в каталоге build/
 build/
 node_modules/
+cache/
