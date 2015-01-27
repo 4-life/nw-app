@@ -3,6 +3,6 @@
   "devDependencies": {
     "grunt": "latest",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-node-webkit-builder": "latest"
+    "grunt-node-webkit-builder": "^1.0.0"
   }
 }
