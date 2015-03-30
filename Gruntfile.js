@@ -12,9 +12,10 @@ module.exports = function(grunt) {
     },
     nodewebkit: {
       options: {
-        platforms: ['win','osx','linux'], // Платформы, под которые будет строиться наше приложение
+        platforms: ['win'/*,'osx','linux'*/], // Платформы, под которые будет строиться наше приложение
         buildDir: './build', // Путь, по которому будет располагаться построенное приложение
-		winIco:'app.ico'
+		winIco:'app.ico',
+		macIcns:'app.icns'
       },
       src: './app/**/*' // Путь, по которому располагаются исходные коды приложения
     },

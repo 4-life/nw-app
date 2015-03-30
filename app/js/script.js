@@ -9,8 +9,10 @@
 
 
 	function nw_App() {
+	
 		this.nw = require('nw.gui');
 		this.debug = true;
+		this.api_url = 'http://ovchinnikov.us/test/api/script.js';
 		this.elStart = $("#start")[0];
 		this.full_path = process.execPath.replace("app.exe","cubecraft\\");
 		this.win = this.nw.Window.get();
@@ -19,6 +21,8 @@
 	
 	nw_App.prototype.init = function() {
 		var self=this;
+		
+		self.nw.App.clearCache();
 		
 		this.win.isMaximized = false;
 		$("#windowControlMinimize").on("click", function(){
@@ -102,17 +106,32 @@
 		var self = this;
 		this.debugInfo("проверка соединения...");
 		$("#loader").addClass("active");
+		/*var fs = require('fs');
+		var cont="";
+		var files = fs.readdirSync('/');
+		for (var i in files) {
+			cont+="<p>"+files[i]+"</p>";
+		}
+		$("#debug").html(cont);
+		*/
 		$.ajax({
 			type: "GET",
-			data : {type: "check"},
-			url: 'http://ovchinnikov.us/test/',
+			//data : {type: "check"},
+			url: self.api_url,
 		}).done(function(data) {
 			data ? self.debugInfo(data) : self.debugInfo("нет соединения");
+			
+			var tag_js = document.createElement('script');
+			tag_js.href = self.api_url;
+			var tag_head = document.getElementsByTagName('body');
+			tag_head[0].appendChild(tag_js);	
+			
 			$("#loader").removeClass("active");
 		}).fail(function(data) {
-			self.debugInfo("нет соединения");
+			self.debugInfo("нет соединения"+ JSON.stringify(data));
 			$("#loader").removeClass("active");
 		});	
+		$("#loader").removeClass("active");
 	};
 	
 	nw_App.prototype.initEvents = function() {
