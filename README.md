@@ -1,22 +1,27 @@
-#Awesome Node-webkit application
+#nw.js application example
 
-####Тут детально описаны инструкции для построения node-webkit приложения в винде.
+####Сборка node-webkit приложения с кодеками для работы видео и рабочими настройками WebGl.
 
-1. Если нет гита, то для начала [Скачиваем гит для винды](https://msysgit.github.io/), конечно же консольную версию.
+В папке ```mpeg_libs``` собраны рабочие кодеки для корректной работы видео в ```nw.js 0.12.3``` с версией движка ```Chromium 41.0.2272.76``` для каждой ОС соответственно.
 
-2. Если нет nodejs, то [скачиваем](http://nodejs.org/)
+Для OSX помещаем кодек в директорию ```osx32\nwjs.app\Contents\Frameworks\nwjs Framework.framework\Librariesм```.
 
-3. В качестве сборщика используем Grunt-cli, установить который можно командой: 
->npm i -g grunt-cli
+Для windows помещаем кодек в корень.
 
-4. После этого переходим в папку с проектом и выполняем команду: 
+Для linux кодеки пока что в поиске.
+
+Для работы WebGl добавляем настройки в ```package.json``` приложения:
+
 ```shell
-npm install grunt-node-webkit-builder --save-dev
+	"chromium-args": "--child-clean-exit --enable-webgl --ignore-gpu-blacklist --disable-pinch",
+	"webkit": {
+		"plugin": true
+	}
 ```
 
-5. Создаем файлы ```package.json``` и ```Gruntfile.js```. Их содержание смотрим в репозитории. app - это папка с исходным кодом проекта.
+WebGl пример на three.js взят [от сюда](http://threejs.org/examples/).
 
-6. Для построения приложения используем Grunt командой:
->grunt nodewebkit
+Собрать приложение:
+>grunt
 
 ===
