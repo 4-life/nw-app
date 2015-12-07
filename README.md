@@ -4,7 +4,7 @@
 
 В папке ```mpeg_libs``` собраны рабочие кодеки для корректной работы видео в ```nw.js 0.12.3``` с версией движка ```Chromium 41.0.2272.76``` для каждой ОС соответственно.
 
-Для OSX помещаем кодек в директорию ```osx32\nwjs.app\Contents\Frameworks\nwjs Framework.framework\Librariesм```.
+Для OSX помещаем кодек в директорию ```osx32\nwjs.app\Contents\Frameworks\nwjs Framework.framework\Libraries```.
 
 Для windows помещаем кодек в корень.
 
