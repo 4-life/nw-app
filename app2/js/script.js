@@ -5,6 +5,8 @@
 		this.nw = require('nw.gui');
 		this.full_path = process.execPath;
 		this.win = this.nw.Window.get();
+        this.menu = new this.nw.Menu();
+        this.subMenu = new this.nw.Menu();
 		this.init();
 	}
 	
@@ -28,6 +30,23 @@
 			e.preventDefault();
 			self.nw.Shell.openExternal('http://nwjs.io/');
 		}
+        
+        this.menu.append(new self.nw.MenuItem({label: 'Тынц!',
+            click: function() {
+                alert("Хлюп!");
+            }}));
+	
+        this.subMenu.append(new self.nw.MenuItem({label: 'Хлюп'}));
+        this.menu.append(new self.nw.MenuItem({
+            label: "Хлюп",
+            submenu: self.subMenu
+        }));
+
+        document.body.addEventListener('contextmenu', function(e) { 
+             e.preventDefault();
+             self.menu.popup(e.x, e.y);
+             return false;
+        });
         
 	}
     
