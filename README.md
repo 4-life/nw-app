@@ -19,7 +19,7 @@
 	}
 ```
 
-WebGl пример на three.js взят [от сюда](http://threejs.org/examples/).
+WebGl пример на three.js взят [отсюда](http://threejs.org/examples/).
 
 Собрать приложение:
 >grunt
